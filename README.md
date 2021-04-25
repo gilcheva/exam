@@ -1,1 +1,1 @@
-# exam
+# Galina Lambova - gilcheva@abv.bg
