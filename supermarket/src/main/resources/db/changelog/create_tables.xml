@@ -59,9 +59,13 @@
           nullable="false"
         />
       </column>
-<!--      <column name="supermarket_id" type="uuid">-->
-<!--        <constraints nullable="false"/>-->
-<!--      </column>-->
+      <column name="supermarket_id" type="uuid">
+        <constraints
+          nullable="false"
+          foreignKeyName="fk_purchases_supermarkets"
+          references="supermarkets(supermarket_id)"
+        />
+      </column>
 <!--      <column name="supermarket_id" type="uuid">-->
 <!--        <constraints nullable="false"/>-->
 <!--      </column>-->

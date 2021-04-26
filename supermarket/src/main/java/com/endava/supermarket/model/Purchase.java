@@ -8,7 +8,11 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
@@ -26,11 +30,11 @@ public class Purchase {
   @Column(name="purchase_id")
   private String purchaseId;
 
-//  @NotBlank
-//  @Column(name = "supermarket_id")
-//  @OneToOne
-//  private Supermarket supermarket;
-//
+  @NotBlank
+  @ManyToOne
+  @JoinColumn(name = "supermarket_id")
+  private Supermarket supermarket;
+
 //  @OneToMany(mappedBy = "item", cascade = CascadeType.ALL)
 //  private List<Item> item = new ArrayList<>();
 
