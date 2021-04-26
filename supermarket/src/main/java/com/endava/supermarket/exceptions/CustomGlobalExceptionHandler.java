@@ -1,6 +1,5 @@
 package com.endava.supermarket.exceptions;
 
-//import com.endava.user_api.datetimeformat.CustomDateTimeFormatter;
 import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.LinkedHashMap;
@@ -21,19 +20,9 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 @ControllerAdvice
 public class CustomGlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
-    @ExceptionHandler(InvalidDateException.class)
-    public ResponseEntity<Object> handleInvalidDateException(
-        InvalidDateException ex, WebRequest request) {
-        Map<String, Object> body = new LinkedHashMap<>();
-        body.put("timestamp", LocalDateTime.now());
-        body.put("message", ex.getMessage());
-        return new ResponseEntity<>(body, HttpStatus.BAD_REQUEST);
-    }
-
     @ExceptionHandler(EntityNotFoundException.class)
     public ResponseEntity<Object> handleEntityNotFoundException(EntityNotFoundException ex) {
         Map<String, Object> body = new LinkedHashMap<>();
-//        body.put("timestamp", CustomDateTimeFormatter.formattedTimestamp());
         body.put("timestamp", LocalDateTime.now());
         body.put("error", ex.getMessage());
         return new ResponseEntity<>(body, HttpStatus.NOT_FOUND);
@@ -42,7 +31,6 @@ public class CustomGlobalExceptionHandler extends ResponseEntityExceptionHandler
     @ExceptionHandler(IllegalArgumentException.class)
     public ResponseEntity<Object> handleIllegalArgumentException(IllegalArgumentException ex) {
         Map<String, Object> body = new LinkedHashMap<>();
-//        body.put("timestamp", CustomDateTimeFormatter.formattedTimestamp());
         body.put("timestamp", LocalDateTime.now());
         body.put("error", ex.getMessage());
         return new ResponseEntity<>(body, HttpStatus.BAD_REQUEST);
@@ -61,7 +49,6 @@ public class CustomGlobalExceptionHandler extends ResponseEntityExceptionHandler
             MethodArgumentNotValidException ex, HttpHeaders headers,
             HttpStatus status, WebRequest request) {
         Map<String, Object> body = new LinkedHashMap<>();
-//        body.put("timestamp", CustomDateTimeFormatter.formattedTimestamp());
         body.put("timestamp", new Date());
         body.put("status", status.value());
         Map<String, String> fieldErrors = ex.getBindingResult().getFieldErrors().stream().collect(

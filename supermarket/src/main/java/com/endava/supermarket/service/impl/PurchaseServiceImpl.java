@@ -1,15 +1,10 @@
 package com.endava.supermarket.service.impl;
 
 import com.endava.supermarket.model.Purchase;
-import com.endava.supermarket.repository.ItemRepository;
 import com.endava.supermarket.repository.PurchaseRepository;
-import com.endava.supermarket.repository.SupermarketRepository;
 import com.endava.supermarket.service.PurchaseService;
 import lombok.RequiredArgsConstructor;
-import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
-
-import com.endava.supermarket.service.PurchaseService;
 
 @Service
 @RequiredArgsConstructor
